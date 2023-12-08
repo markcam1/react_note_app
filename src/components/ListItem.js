@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 let getTime = (note_update) => {
-  console.log(note_update)
+  // console.log(note_update)
   return new Date(note_update).toLocaleDateString()
 }
 
@@ -28,10 +28,16 @@ let getContent = (note) => {
   }
 }
 
+let getAmount = (note) => {
+  let amount = note.amount
+  return amount
+}
+
 const ListItem = ({note}) => {
   return (
     <Link to={`/note/${note.id}`} >
         <div className='notes-list-item'>
+          <h3>{getAmount(note)}</h3>
           <h3>{getTitle(note)}</h3>
           <p><span>{getTime(note.update)}</span>{getContent(note)}</p>
         </div>
